@@ -35,14 +35,21 @@ set(CPP_FILES
 	
 	#services
 	${SERVICE_DIR}/RawFileService.cpp
+	${SERVICE_DIR}/TextLabelService.cpp
+	${SERVICE_DIR}/VtkTextCallBack.cpp
+	${SERVICE_DIR}/LabelingService.cpp
+	
 )
 
 # define headers
 set(HEDER_FILES
        #view
        ${VIEW_DIR}/medicalkit.h
-	#services
-	${SERVICE_DIR}/RawFileService.h
+	  #services
+	  ${SERVICE_DIR}/RawFileService.h
+	  ${SERVICE_DIR}/TextLabelService.h
+	  ${SERVICE_DIR}/LabelingService.h
+      ${SERVICE_DIR}/VtkTextCallBack.h
 )
 
 

@@ -1,6 +1,4 @@
-#ifndef Raw_FILE_SERVICE
-#define Raw_FILE_SERVICE
-
+#pragma once
 /// System inclues.
 #include <string>
 #include <array>
@@ -21,19 +19,22 @@
 #include <vtkRenderWindowInteractor.h>
 #include <vtkInteractorStyleTrackballActor.h>
 #include <vtkBoxWidget2.h>
-
+#include <vtkPlane.h>
+#include <vtkCutter.h>
 
 /// Qt incudes.
 #include <qstring.h> 
 #include  <qbytearray.h>
-
+#include <qobject.h>
 namespace service
 {
 	class  RawFileService;
 }
 
-class RawFileService
+class RawFileService : public  QObject
 {
+	Q_OBJECT
+
 public:
 	RawFileService(QString filepath, vtkSmartPointer<vtkRenderWindow> renderWindow);
 	~RawFileService();
@@ -51,7 +52,8 @@ public:
 	{
 		MET_SHORT = 1
 	};
-
+public slots:
+	void startCutter();
 private:
 	QString m_rawFilePath;
 	std::array<double, 3> m_skinColor;
@@ -64,5 +66,8 @@ private:
 	vtkSmartPointer<vtkMarchingCubes> m_skinExtractor;
 
 	vtkSmartPointer<vtkRenderer> m_renderer;
+
+	vtkSmartPointer<vtkPlane> m_cutterplane;
+	vtkSmartPointer<vtkCutter> m_cutter;
 };
-#endif // !Raw_FILE_SERVICE
+

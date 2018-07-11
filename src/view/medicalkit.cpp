@@ -16,6 +16,7 @@ MedicalKit::MedicalKit(QWidget *parent) :
 	connect(ui->horizontalSlider_red, SIGNAL(valueChanged(int)), this, SLOT(seekSlider(int)));
 	connect(ui->horizontalSlider_green_2, SIGNAL(valueChanged(int)), this, SLOT(seekSlider(int)));
 	connect(ui->horizontalSlider_blue, SIGNAL(valueChanged(int)), this, SLOT(seekSlider(int)));
+    connect(ui->pushButton_addText, SIGNAL(clicked(bool)), this, SLOT(addText()));
 }
 
 MedicalKit::~MedicalKit()
@@ -37,17 +38,33 @@ void MedicalKit::initUI()
 	vtkSmartPointer<vtkGenericOpenGLRenderWindow> openGlRenderWindow =
 		vtkSmartPointer<vtkGenericOpenGLRenderWindow>::New();
 	m_vtkWidget->SetRenderWindow(openGlRenderWindow);
-
+	this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 	m_renderWindow = m_vtkWidget->GetRenderWindow();
 	m_renderWindowInteractor =
 		vtkSmartPointer<vtkRenderWindowInteractor>::New();
 	m_renderWindowInteractor->SetRenderWindow(m_renderWindow);
 
-	vtkSmartPointer<vtkInteractorStyleTrackballActor> style =
-		vtkSmartPointer<vtkInteractorStyleTrackballActor>::New();
+	vtkSmartPointer<vtkInteractorStyleTrackballCamera> style =
+		vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
+	try {
+		QFile File("StyleSheet1.css");
+		File.open(QFile::ReadOnly | QFile::Text);
+		if (File.isOpen())
+		{
+			this->setStyleSheet(File.readAll());
+		}
+		else
+		{
+			std::cout << "ERROR : Can not Load Stylesheet!.";
+		}
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what();
+	}
+	
 
 	m_renderWindowInteractor->SetInteractorStyle(style);
-
 	initRGBSliders();
 }
 
@@ -60,6 +77,7 @@ void MedicalKit::openMedicalFile()
 			tr("Open Image"), " ", tr("Image Files (*.raw, *.mhd, *.txt)"));
 
 		m_rawFileService = new RawFileService(fileName, m_renderWindow);
+		connect(ui->pushButton_startCutter, SIGNAL(clicked()), m_rawFileService, SLOT(startCutter()));
 
 		if (m_rawFileService->openRawFile())
 		{
@@ -107,3 +125,7 @@ void MedicalKit::seekSlider(int value)
 	m_renderWindow->Render();
 }
 
+void MedicalKit::addText()
+{
+    m_textLabel = new TextLabelService(m_renderWindow);
+}
