@@ -35,24 +35,9 @@ bool RawFileService::openRawFile()
 
 void RawFileService::setupImage()
 {
-	RAW_FILE_TYPES  type;
-	switch (type)
-	{
-	case RAW_FILE_TYPES::MET_SHORT :
-		{
-			//;
-		break;
-		}
-
-	 default:
-	{
-		//;
-
-	}
-
-
-	}
 	readHeaderFile();
+if(m_rawFileType == "MET_SHORT")
+{
 	vtkSmartPointer<vtkMarchingCubes> skinExtractor =
 		vtkSmartPointer<vtkMarchingCubes>::New();
 	skinExtractor->SetInputConnection(m_rawImageReader->GetOutputPort());
@@ -65,7 +50,7 @@ void RawFileService::setupImage()
 	skinMapper->ScalarVisibilityOff();
 
 	m_skin->SetMapper(skinMapper);
-
+}
 	m_renderer =   vtkSmartPointer<vtkRenderer>::New();
 	m_renderer->AddActor(m_skin);
 
@@ -112,4 +97,37 @@ bool RawFileService::readHeaderFile()
 	{
 		std::cout << e.what();
 	}
+    return is_read;
+}
+
+
+void RawFileService::startCutter()
+{
+	m_cutterplane = vtkSmartPointer<vtkPlane>::New();
+	m_cutterplane->SetOrigin(m_skin->GetCenter());
+	m_cutterplane->SetNormal(1, 1, 1);
+
+
+
+	// Setup cutter
+
+	m_cutter = vtkSmartPointer<vtkCutter>::New();
+	m_cutter->SetCutFunction(m_cutterplane);
+	m_cutter->SetInputConnection(m_rawImageReader->GetOutputPort());
+	m_cutter->Update();
+
+	vtkSmartPointer<vtkPolyDataMapper> cutterMapper =
+		vtkSmartPointer<vtkPolyDataMapper>::New();
+	cutterMapper->SetInputConnection(m_cutter->GetOutputPort());
+
+	vtkSmartPointer<vtkActor> planeActor =
+		vtkSmartPointer<vtkActor>::New();
+	planeActor->SetMapper(cutterMapper);
+	planeActor->GetProperty()->SetColor(1.0, 1, 0);
+	planeActor->GetProperty()->SetLineWidth(2);
+
+	m_renderer->AddActor(planeActor);
+	m_renderer->AddActor(planeActor);
+
+	m_renderWindow->Render();
 }

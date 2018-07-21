@@ -32,17 +32,31 @@ set(CPP_FILES
 	${SOURCE_DIR}/main.cpp
         #view
 	${VIEW_DIR}/medicalkit.cpp
+	${VIEW_DIR}/OpenFileDialog.cpp
+	
 	
 	#services
 	${SERVICE_DIR}/RawFileService.cpp
+	${SERVICE_DIR}/TextLabelService.cpp
+	${SERVICE_DIR}/VtkTextCallBack.cpp
+	${SERVICE_DIR}/LabelingService.cpp
+    ${SERVICE_DIR}/MedicalKitSettings.cpp
+    ${SERVICE_DIR}/DcmFileService.cpp
+	
 )
 
 # define headers
 set(HEDER_FILES
        #view
        ${VIEW_DIR}/medicalkit.h
-	#services
-	${SERVICE_DIR}/RawFileService.h
+	   ${VIEW_DIR}/OpenFileDialog.h
+	  #services
+	  ${SERVICE_DIR}/RawFileService.h
+	  ${SERVICE_DIR}/TextLabelService.h
+	  ${SERVICE_DIR}/LabelingService.h
+      ${SERVICE_DIR}/VtkTextCallBack.h
+      ${SERVICE_DIR}/MedicalKitSettings.h
+      ${SERVICE_DIR}/DcmFileService.h
 )
 
 
