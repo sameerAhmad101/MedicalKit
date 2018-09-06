@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(push,0)
 #include <vtkSmartPointer.h>
 #include <vtkTextWidget.h>
 #include <vtkActor.h>
@@ -17,11 +18,10 @@
 #include <vtkLinearExtrusionFilter.h>
 #include <vtkTriangleFilter.h>
 #include <vtkDataSetMapper.h>
-
 #include <array>
 #include<map>
 #include <QObject>
-
+#pragma warning(pop,0)
 // My includes
 #include "VtkTextCallBack.h"
 

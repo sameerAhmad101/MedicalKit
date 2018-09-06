@@ -1,9 +1,10 @@
 #pragma once
+#pragma warning(push,0)
 #include <vtkCommand.h>
 #include <vtkSmartPointer.h>
 #include <vtkActor.h>
 
-
+#pragma warning(pop,0)
 namespace service{
 	class TextCallback;
 }

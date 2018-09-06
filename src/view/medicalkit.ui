@@ -6,32 +6,537 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>624</width>
-    <height>429</height>
+    <width>867</width>
+    <height>540</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MedicalKit</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_vtkWidget">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetMaximumSize</enum>
-        </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QTableWidget" name="tableWidget_patients">
+            <column>
+             <property name="text">
+              <string>الرقم الوطني</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>الاسم الاأول</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>الاسم الاخير</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>المرض</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>العمر</string>
+             </property>
+            </column>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="text">
+               <string>بحث</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_search">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>بحث عن مريض   </string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::RightToLeft</enum>
+              </property>
+              <property name="title">
+               <string>معلومات المريض</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_12">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_patientinfo1">
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetMinimumSize</enum>
+                   </property>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_3">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetMinimumSize</enum>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_2">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>الاسم الأول</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_patientFirstName">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_14">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetMinimumSize</enum>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_13">
+                       <property name="text">
+                        <string>الاسم الثاني</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_patientLastName">
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetMinimumSize</enum>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_4">
+                       <property name="text">
+                        <string>العمر</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_patientAge">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_5">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetMinimumSize</enum>
+                     </property>
+                     <item>
+                      <widget class="QLabel" name="label_5">
+                       <property name="text">
+                        <string>المرض</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_patientDisease">
+                       <property name="maximumSize">
+                        <size>
+                         <width>100</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_patientInfo2">
+                   <item>
+                    <layout class="QHBoxLayout" name="horizontalLayout_15">
+                     <item>
+                      <widget class="QLabel" name="label_personalImage">
+                       <property name="minimumSize">
+                        <size>
+                         <width>75</width>
+                         <height>75</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>75</width>
+                         <height>75</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QPushButton" name="pushButton_openProfile">
+                   <property name="text">
+                    <string>ملف المريض</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_deleteProfile">
+                   <property name="text">
+                    <string>حذف الملف</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QGroupBox" name="groupBox_2">
+                <property name="layoutDirection">
+                 <enum>Qt::RightToLeft</enum>
+                </property>
+                <property name="title">
+                 <string>اضافة مريض</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <item>
+                    <layout class="QFormLayout" name="formLayout">
+                     <property name="labelAlignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_3">
+                       <property name="maximumSize">
+                        <size>
+                         <width>80</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>الاسم الأول :  </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="lineEdit_firstName"/>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_7">
+                       <property name="maximumSize">
+                        <size>
+                         <width>67</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>العمر : </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="lineEdit_age"/>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_11">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>الرقم الوطني   :  </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="lineEdit_nationalNumber"/>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QLabel" name="label_8">
+                       <property name="maximumSize">
+                        <size>
+                         <width>60</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>الجنس : </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QComboBox" name="comboBox_gender">
+                       <item>
+                        <property name="text">
+                         <string>غير محدد</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>انثى</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>ذكر</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QFormLayout" name="formLayout_3">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_6">
+                       <property name="text">
+                        <string>اللاسم الاخير  : </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="lineEdit_lastName"/>
+                     </item>
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="lineEdit_location"/>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_10">
+                       <property name="maximumSize">
+                        <size>
+                         <width>80</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>مكان الاقامة : </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_9">
+                       <property name="maximumSize">
+                        <size>
+                         <width>65</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>المرض  : </string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="lineEdit_5"/>
+                     </item>
+                     <item row="3" column="1">
+                      <widget class="QPushButton" name="pushButton_addPersonalImage">
+                       <property name="text">
+                        <string>اضافة صورة شخصية</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QPushButton" name="pushButton_addSingleImage">
+                     <property name="text">
+                      <string>اضافة صور مفردة</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_addImageSeries">
+                     <property name="text">
+                      <string>اضافة سلسلة صور</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QPushButton" name="pushButton_addProfile">
+                     <property name="text">
+                      <string>اضافة المريض</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButton_cancelAddProfile">
+                     <property name="text">
+                      <string>الغاء</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
-      <item>
-       <widget class="QSlider" name="horizontalSlider_slicesSlider">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
      </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_imageSeries"/>
     </item>
    </layout>
   </widget>
@@ -40,18 +545,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>624</width>
+     <width>867</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="actionOpen"/>
-    <addaction name="actionOpen_Dicom_Series"/>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -62,260 +559,6 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QDockWidget" name="dockWidget_labels">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>174</width>
-     <height>149</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>300</width>
-     <height>154</height>
-    </size>
-   </property>
-   <property name="floating">
-    <bool>false</bool>
-   </property>
-   <property name="windowTitle">
-    <string>Colors</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <property name="spacing">
-        <number>10</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Red</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>10</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider_red">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <property name="spacing">
-        <number>10</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Green</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Maximum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>10</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider_green_2">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="minimumSize">
-          <size>
-           <width>30</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Blue</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Minimum</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>15</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider_blue">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>93</width>
-     <height>92</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>300</width>
-     <height>175</height>
-    </size>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QPushButton" name="pushButton_addText">
-       <property name="text">
-        <string>add Text</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_startCutter">
-       <property name="text">
-        <string>start cutter</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget_properties">
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_3">
-    <widget class="QTabWidget" name="tabWidget">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>156</width>
-       <height>43</height>
-      </rect>
-     </property>
-     <property name="currentIndex">
-      <number>1</number>
-     </property>
-     <widget class="QWidget" name="tab_textLabel">
-      <attribute name="title">
-       <string>Tab 1</string>
-      </attribute>
-     </widget>
-     <widget class="QWidget" name="tab_image">
-      <attribute name="title">
-       <string>Tab 2</string>
-      </attribute>
-     </widget>
-    </widget>
-   </widget>
-  </widget>
   <action name="actionOpen">
    <property name="text">
     <string>Open file</string>

@@ -3,70 +3,81 @@
 /// Qt includes
 #pragma warning (push,0)
 #include <QMainWindow>
-#include <QVTKWidget.h>
-#include <QVTKOpenGLWidget.h>
+#include <QCloseEvent>
+#include <QString>
 #include <QFileDialog>
-#include <qfile.h>
-#include <qpalette.h>
+#include <QStringList>
+#include <qtablewidget.h>
+#include <QTableWidgetItem>
+#include <QtSql>
+#include <QRegularExpressionValidator>
 /// Vtk includes
 #include <vtkSmartPointer.h>
 #include <vtkRenderWindow.h>
-#include <vtkMetaImageReader.h>
-#include <vtkPolyData.h>
-#include <vtkPolyDataMapper.h>
+
 #include <vtkActor.h>
 #include <vtkRenderer.h>
-#include <vtkGenericOpenGLRenderWindow.h>
-#include <vtkBoxWidget.h>
-#include <vtkMarchingCubes.h>
-#include <vtkProperty.h>
 #include <vtkRenderWindowInteractor.h>
-#include <vtkInteractorStyleTrackballActor.h>
-#include <vtkInteractorStyleTrackballCamera.h>
-#include <vtkInteractorStyleSwitch.h>
 
 // System includes
 #include <array>
-#pragma warning (pop,0)
+#include <sstream>
+#include <fstream>
+#include <codecvt>
+#include <experimental/filesystem>
+#include <qdebug.h>
+#include <QMessageBox>
+#pragma warning (pop)
 // My Includes.
-#include "../services/RawFileService.h"
-#include "OpenFileDialog.h"
-#include "../services/TextLabelService.h"
-#include "../services/DcmFileService.h"
 
+#include "singleimage.h"
+#include "imageseries.h"
+#include "../services/patientservice.h"
+#include "../services/SqlDB.h"
 namespace Ui {
 class MedicalKit;
 }
 
 class MedicalKit : public QMainWindow
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
     explicit MedicalKit(QWidget *parent = 0);
     ~MedicalKit();
-	void initRGBSliders();
-	public slots:
-    void openMedicalFile();
-    void openDicomdirectory();
-    void seekRGBSlider(int value);
-    void seekSlicesSlider(int value);
-    void addText();
-
+    void closeEvent(QCloseEvent *event);
+    void fillTable(int mode = 0);
+public slots:
+    void openSingleFileUi();
+    void openImageSeriesFileUi();
+    void addProfile();
+    void openSingleImage();
+    void openSingleImagesDirectory();
+	void clickedCell(int , int );
+	void patientSearch();
+	void searchFieldChanged();
+    void addPersonalImage();
+	std::map<std::string, Patient*> searchBySting(const std::string &string);
 private:
     Ui::MedicalKit *ui;
-    QVTKOpenGLWidget * m_vtkWidget;
-	vtkSmartPointer<vtkMetaImageReader> m_rawImageReader;
-	vtkSmartPointer<vtkRenderWindow> m_renderWindow;
-	vtkSmartPointer<vtkRenderWindowInteractor> m_renderWindowInteractor;
+    SingleImage * m_singleImageUi = nullptr;
+    ImageSeries * m_imageSeriesUi = nullptr;
+    PatientService * m_patientService;
+	std::map<std::string, Patient *> m_patients_v;
+	std::map<std::string, Patient *> m_searchResults;
+    QFileDialog *m_fileDialog;
+    std::vector<std::string> m_images_v;
+    QStringList m_filesNames;
+    std::string m_slicesDirectory;
+    std::fstream  m_profile;
+    void initPatients();
+    Patient* m_selectedPatient = nullptr;
+    std::shared_ptr<Database> m_database;
+    std::string m_presonalImagePath;
 
-	QFileDialog * m_fileDialog;
-	std::array<double, 3>  m_rgbColor;
-
-	RawFileService  * m_rawFileService = nullptr;
-    TextLabelService * m_textLabel;
-    DcmFileService * m_dcmFileService = nullptr;
-	void initUI();
+    void messageBox(const std::string &message);
+    void viewPatientImage(std::string &imagePath);
+    void initPatientInfo(Patient *patient);
 };
 
 
